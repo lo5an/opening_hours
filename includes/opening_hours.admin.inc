@@ -32,7 +32,7 @@ function opening_hours_admin_settings_page() {
   $blocked_days = variable_get('opening_hours_blocked_days', array());
 
   foreach ($blocked_days as $date) {
-    $items[] = $date . ' ' . l(t('Delete'), 'admin/content/opening_hours/blocked_day/' . $date .  '/delete');
+    $items[] = $date . ' ' . l(t('Delete'), 'admin/structure/opening_hours/blocked_day/' . $date .  '/delete');
   }
 
   if (!empty($items)) {
@@ -46,7 +46,7 @@ function opening_hours_admin_settings_page() {
   }
 
   $page['block_add_new'] = array(
-    '#markup' => l(t('Add new blocked day'), 'admin/content/opening_hours/blocked_day/add'),
+    '#markup' => l(t('Add new blocked day'), 'admin/structure/opening_hours/blocked_day/add'),
   );
 
   return $page;
@@ -100,7 +100,7 @@ function opening_hours_admin_blocked_day_add_form_submit(&$form, &$form_state) {
     '%date' => $form_state['values']['date'],
   )));
 
-  $form_state['redirect'] = 'admin/content/opening_hours';
+  $form_state['redirect'] = 'admin/structure/opening_hours';
 }
 
 /**
@@ -112,7 +112,7 @@ function opening_hours_admin_blocked_day_delete_form($form, $form_state, $date) 
     '#value' => $date,
   );
 
-  return confirm_form($form, t('Delete blocked day @date?', array('@date' => $date)), 'admin/content/opening_hours');
+  return confirm_form($form, t('Delete blocked day @date?', array('@date' => $date)), 'admin/structure/opening_hours');
 }
 
 /**
@@ -130,5 +130,5 @@ function opening_hours_admin_blocked_day_delete_form_submit(&$form, &$form_state
     '@date' => $form_state['values']['date'],
   )));
 
-  $form_state['redirect'] = 'admin/content/opening_hours';
+  $form_state['redirect'] = 'admin/structure/opening_hours';
 }
