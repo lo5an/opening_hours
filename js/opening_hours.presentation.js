@@ -16,7 +16,7 @@
     // If just a single nid was given, wrap it in an array, so we can
     // treat it uniformly below.
     if (!_.isArray(nids)) {
-      if (_.isString(options.nid) && parseInt(options.nid, 10) > 0) {
+      if (parseInt(options.nid, 10) > 0) {
         nids = [options.nid];
       }
       // Bogus data received. Do nothing.
