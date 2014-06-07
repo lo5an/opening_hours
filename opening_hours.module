@@ -560,7 +560,7 @@ function opening_hours_js_attach_common() {
     // TODO: Figure out if this can be loaded via attachments.
     date_popup_add();
 
-    // Only return the attachments the first time, to avoid these files 
+    // Only return the attachments the first time, to avoid these files
     // being added to the page twice, messing up the order.
     return $attachments;
   }
@@ -623,14 +623,14 @@ function opening_hours_js_attach_presentation() {
 /**
  * Helper function to load our JavaScript dependencies.
  *
- * Kept around for backwards compatibilty. You should not call this, if 
- * possible, add opening_hours_js_attach_presentation or 
+ * Kept around for backwards compatibilty. You should not call this, if
+ * possible, add opening_hours_js_attach_presentation or
  * opening_hours_js_attach_admin to your render array instead.
  *
- * It is still called in template_preprocess_opening_hours_week(), since 
+ * It is still called in template_preprocess_opening_hours_week(), since
  * we would need to change the API of the module if we didn't.
- * So far, it's been possible to embed the opening hours with a single 
- * theme('opening_hours_week', $node'). If we want that, we'll have to 
+ * So far, it's been possible to embed the opening hours with a single
+ * theme('opening_hours_week', $node'). If we want that, we'll have to
  * add the JavaScript in the preprocessor, rather than the render array.
  */
 function opening_hours_add_js($type = 'presentation', $nid = FALSE) {
@@ -642,7 +642,7 @@ function opening_hours_add_js($type = 'presentation', $nid = FALSE) {
   }
 
   if (!empty($attachments)) {
-    // Create a fake empty element, since that is what 
+    // Create a fake empty element, since that is what
     // drupal_process_attached expects.
     $fakeelement = array(
       '#attached' => $attachments,
