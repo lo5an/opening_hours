@@ -43,6 +43,7 @@ function opening_hours_menu() {
 
   $items['admin/structure/opening_hours'] = array(
     'title' => 'Opening hours',
+    'description' => 'Managed blocked days for the opening hours module.',
     'page callback' => 'opening_hours_admin_settings_page',
     'access arguments' => array('administer opening hours configuration'),
     'file' => 'opening_hours.admin.inc',
