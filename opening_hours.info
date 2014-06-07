@@ -4,4 +4,4 @@ dependencies[] = date_popup
 dependencies[] = tipsy
 core = 7.x
 php = 5.2.5
-
+configure = admin/structure/opening_hours
