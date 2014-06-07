@@ -15,8 +15,14 @@
 
     // If just a single nid was given, wrap it in an array, so we can
     // treat it uniformly below.
-    if (!nids) {
-      nids = [options.nid];
+    if (!_.isArray(nids)) {
+      if (parseInt(options.nid, 10) > 0) {
+        nids = [options.nid];
+      }
+      // Bogus data received. Do nothing.
+      else {
+        return;
+      }
     }
 
     $.ajax({
