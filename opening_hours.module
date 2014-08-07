@@ -668,3 +668,66 @@ function template_preprocess_opening_hours_week(&$vars) {
     $once = TRUE;
   }
 }
+
+/**
+ * Implements hook_field_extra_fields().
+ *
+ * Define opening hours as an extra field for display in view modes.
+ */
+function opening_hours_field_extra_fields() {
+  $extra = array();
+  $node_types = node_type_get_types();
+
+  foreach ($node_types as $node_type) {
+    // We only provide the extra fields on the enabled node types.
+    if (variable_get('opening_hours_enabled_' . $node_type->type, FALSE)) {
+      $extra['node'][$node_type->type] = array(
+        'display' => array(
+          'opening_hours_week' => array(
+            'label' => t('Opening hours'),
+            'description' => t('Opening hours'),
+            'weight' => 0,
+            'visible' => FALSE,
+          ),
+        ),
+      );
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ *
+ * Add opening hours as a field on node views.
+ */
+function opening_hours_node_view($node, $view_mode, $langcode) {
+  if (opening_hours_present_on_node($node->nid)) {
+    $extrafields = field_extra_fields_get_display('node', $node->type, $view_mode);
+
+    if (isset($extrafields['opening_hours_week'])
+      && isset($extrafields['opening_hours_week']['visible'])
+      && $extrafields['opening_hours_week']['visible']) {
+
+      // We can't control label position on extra fields in UI. We'll store our
+      // choice in a variable instead.
+      $label_position = variable_get('opening_hours_week_label_position__' . $node->type . '__' . $view_mode, 'above');
+      $node->content['opening_hours_week'] = array(
+        '#theme' => array('field'),
+        '#label_display' => $label_position,
+        '#items' => array(0),
+        '#title' => t('Opening hours'),
+        '#language' => $langcode,
+        '#field_name' => 'opening_hours_week',
+        '#field_type' => 'text',
+        '#bundle' => $node->type,
+        '#view_mode' => $view_mode,
+        0 => array(
+          '#theme' => 'opening_hours_week',
+          '#node' => $node,
+        ),
+      );
+    }
+  }
+}
