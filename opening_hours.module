@@ -219,7 +219,7 @@ function opening_hours_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements of hook_admin_paths().
+ * Implements hook_admin_paths().
  */
 function opening_hours_admin_paths() {
   return array(
@@ -262,15 +262,14 @@ function opening_hours_node_edit_access($node) {
  * Used for hiding the opening_hours block on pages where it will never
  * display any data.
  *
- * @param integer $nid
+ * @param int $nid
  *   Node ID to check.
  *
- * @return boolean
+ * @return bool
  *   TRUE if opening hours are present, FALSE if not.
  */
 function opening_hours_present_on_node($nid, $reset = FALSE) {
   static $presence = array();
-  $verdict = FALSE;
 
   // Load Drupal’s cache if $presence array is empty.
   if (!$reset && empty($presence) && $cache = cache_get('opening_hours_present_on_node')) {

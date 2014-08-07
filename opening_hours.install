@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements of hook_schema().
+ * Implements hook_schema().
  */
 function opening_hours_schema() {
   $schema = array();
@@ -89,7 +89,7 @@ function opening_hours_schema() {
 }
 
 /**
- * Implements of hook_install().
+ * Implements hook_install().
  */
 function opening_hours_install() {
   // By default, we want to use the admin theme for our interface. This
@@ -98,7 +98,7 @@ function opening_hours_install() {
 }
 
 /**
- * Implements of hook_uninstall().
+ * Implements hook_uninstall().
  */
 function opening_hours_uninstall() {
   // Delete any variables we have set.
@@ -107,7 +107,7 @@ function opening_hours_uninstall() {
 }
 
 /**
- * Implements of hook_update_N().
+ * Implements hook_update_N().
  */
 function opening_hours_update_7000(&$sandbox) {
   // Remove the old index, since we create a new one below.
@@ -126,6 +126,8 @@ function opening_hours_update_7000(&$sandbox) {
 }
 
 /**
+ * Implements hook_update_N().
+ *
  * Remove unique key, so that “duplicate” opening hours are allowed.
  *
  * Enforcing uniqueness doesn't make as much sense after we got 

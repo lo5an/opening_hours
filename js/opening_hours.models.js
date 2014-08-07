@@ -42,4 +42,3 @@ Drupal.OpeningHours.Instance = Backbone.Model.extend({
 });
 
 }(jQuery));
-

@@ -20,4 +20,3 @@ Drupal.OpeningHours.Instances = Backbone.Collection.extend({
 });
 
 }(jQuery));
-
