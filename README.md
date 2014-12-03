@@ -1,12 +1,7 @@
-Opening hours module for Drupal
+Opening hours module for OU Libraries
 ===============================
 
-This module is intended to make it fairly easy to manage opening hours
-for a large number of locations.
-
-Built for the [Ding.TING][] project, and funded by [Copenhagen Public
-Libraries][KKB].
-
-[Ding.TING]: http://ting.dk/
-[KKB]: http://bibliotek.kk.dk/node/272
+This is a local development fork of the Opening Hours module for
+Drupal. If you want opening hours for Drupal, you probably want to
+grab the original from https://www.drupal.org/project/opening_hours
 
