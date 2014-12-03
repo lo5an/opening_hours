@@ -9,6 +9,7 @@
 ?>
 <script type="text/template" id="oho-day-presentation-template">
   <div class="day <%= even_odd %> clear-block">
+  <a href="opening_hours_week.tpl.php"></a>
     <span class="name"><%= name %></span>
     <span class="times"><%= instances %></span>
   </div>

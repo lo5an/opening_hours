@@ -145,8 +145,8 @@
         daysContainer.empty();
 
         // Fill in the header.
-        self.el.find('.from_date').text($.datepicker.formatDate('d/m', self.week.dates[0]));
-        self.el.find('.to_date').text($.datepicker.formatDate('d/m', self.week.dates[6]));
+        self.el.find('.from_date').text($.datepicker.formatDate('m/d', self.week.dates[0]));
+        self.el.find('.to_date').text($.datepicker.formatDate('m/d', self.week.dates[6]));
         // Use the middle day of the week to get the week number, to
         // dodge off-by-one-errors in older versions of jQuery UI.
         self.el.find('.week_num').text($.datepicker.iso8601Week(self.week.dates[3]));
@@ -174,6 +174,8 @@
             if (instance.category_tid && Drupal.settings.OpeningHours.categories) {
               category = Drupal.settings.OpeningHours.categories[instance.category_tid];
             }
+$Start_Time_DV = instance.start_time;
+$Start_Time_render_DV = (string) $Start_Time_DV;
 
             renderedInstances.push(self.options.instanceTemplate({
               start_time: instance.start_time,
